@@ -14,10 +14,10 @@
 
 //==============================================================================
 
-/*enum {
+enum {
 	TARGET_MODE_NORMAL = 0,
 	TARGET_MODE_CENTER
-};*/
+};
 
 //==============================================================================
 class CCamera {
@@ -25,8 +25,8 @@ class CCamera {
 		static CCamera CameraControl;
 
 	private:
-		int X;
-		int Y;
+		float X;
+		float Y;
 
 		float* TargetX;
 		float* TargetY;
@@ -38,7 +38,7 @@ class CCamera {
 		CCamera();
 
 	public:
-		void OnMove(int MoveX, int MoveY);
+		void OnMove(float MoveX, float MoveY);
 
 	public:
 		int GetX();

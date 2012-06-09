@@ -9,18 +9,21 @@
 #define CAPPSTATEINTRO_H_
 
 #include <SDL/SDL.h>
+#include <SDL/SDL_mixer.h>
 #include "CAppState.h"
 #include "CSurface.h"
 #include "CCamera.h"
+#include "CAnimation.h"
 class CAppStateIntro: public CAppState {
 		private:
 			static CAppStateIntro Instance;
 
 			SDL_Surface* Surf_Background;
 			SDL_Surface* Surf_Title;
+			SDL_Surface* Surf_Story;
 			float y;
 			int StartTime;
-
+			CAnimation Anim_Story;
 		private:
 			CAppStateIntro();
 		public:
