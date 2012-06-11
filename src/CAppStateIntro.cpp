@@ -6,7 +6,7 @@
  */
 
 #ifndef NULL
-#define NULL   ((void *) 0)
+#define NULL 0
 #endif
 
 #include "CAppStateIntro.h"
@@ -22,7 +22,6 @@ CAppStateIntro::CAppStateIntro() {
 }
 
 void CAppStateIntro::OnActivate() {
-	// Load Simple Logo
 	Surf_Background = CSurface::OnLoad("background.png");
 	Surf_Story = CSurface::OnLoad("story.png");
 	Anim_Story.MaxFrames = 63;
