@@ -1,16 +1,4 @@
-/*
- * CAppStateIntro.cpp
- *
- *  Created on: Jun 4, 2012
- *      Author: roblabla
- */
-
-#ifndef NULL
-#define NULL 0
-#endif
-
 #include "CAppStateIntro.h"
-#include <iostream>
 #include "CAppStateManager.h"
 
 CAppStateIntro CAppStateIntro::Instance;
@@ -22,27 +10,31 @@ CAppStateIntro::CAppStateIntro() {
 }
 
 void CAppStateIntro::OnActivate() {
-	Surf_Background = CSurface::OnLoad("background.png");
-	Surf_Story = CSurface::OnLoad("story.png");
-	Anim_Story.MaxFrames = 63;
-	Anim_Story.SetFrameRate(500);
+    if ((Surf_Background = CSurface::OnLoad(DIR_BACKGROUND)) == NULL) {
+        fprintf(stderr, "Unable to load: %s\n", DIR_BACKGROUND);
+        exit(1);
+    }
+    if ((Surf_Story = CSurface::OnLoad(DIR_STORY)) == NULL) {
+        fprintf(stderr, "Unable to load: %s\n", DIR_STORY);
+        exit(1);
+    }
+
+	Anim_Story.MaxFrames = STORY_FRAMES;
+	Anim_Story.SetFrameRate(STORY_FRAME_DELAY);
 	StartTime = SDL_GetTicks();
-	CCamera::CameraControl.SetPos(0,0);
+	CCamera::CameraControl.SetPos(CAMERA_START_X, CAMERA_START_Y);
 
-	int audio_rate = 22050;
-	Uint16 audio_format = AUDIO_S16SYS;
-	int audio_channels = 2;
-	int audio_buffers = 4096;
-
-	if(Mix_OpenAudio(audio_rate, audio_format, audio_channels, audio_buffers) != 0) {
+	if(Mix_OpenAudio(SDL_AUDIO_RATE, SDL_AUDIO_FORMAT, SDL_AUDIO_CHANNELS, SDL_AUDIO_BUFFER) != 0) {
 		fprintf(stderr, "Unable to initialize audio: %s\n", Mix_GetError());
 		exit(1);
 	}
 	Mix_Music *sound = NULL;
+    if ((sound = Mix_LoadMUS(DIR_START_MUSIC)) == NULL) {
+        fprintf(stderr, "Unable to load: %s\n", DIR_START_MUSIC);
+        exit(1);
+    }
 
-	sound = Mix_LoadMUS("megaman1.ogg");
-
-	Mix_PlayMusic(sound,0);
+	Mix_PlayMusic(sound, 0);
 }
 
 void CAppStateIntro::OnDeactivate() {
