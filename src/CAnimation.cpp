@@ -1,10 +1,3 @@
-/*
- * CAnnimation.cpp
- *
- *  Created on: Jun 9, 2012
- *      Author: roblabla
- */
-
 #include "CAnimation.h"
 
 CAnimation::CAnimation() {
@@ -32,27 +25,29 @@ void CAnimation::OnAnimate(){
             if(CurrentFrame >= MaxFrames - 1) {
                 FrameInc = -FrameInc;
             }
-        }else{
+        } else {
             if(CurrentFrame <= 0) {
                 FrameInc = -FrameInc;
             }
         }
-    }else{
+    } else {
         if(CurrentFrame >= MaxFrames - 1) {
             CurrentFrame = 0;
         }
     }
 }
 
-void CAnimation::SetFrameRate(int Rate){
+void CAnimation::SetFrameRate(int Rate) {
 	FrameRate = Rate;
 }
 
-void CAnimation::SetCurrentFrame(int Frame){
-   if(Frame < 0 || Frame >= MaxFrames) return;
+void CAnimation::SetCurrentFrame(int Frame) {
+    if(Frame < 0 || Frame >= MaxFrames) {
+        return;
+    }
     CurrentFrame = Frame;
 }
 
-int CAnimation::GetCurrentFrame(){
+int CAnimation::GetCurrentFrame() {
 	return CurrentFrame;
 }

@@ -1,16 +1,9 @@
-/*
- * CCamera.h
- *
- *  Created on: Jun 6, 2012
- *      Author: roblabla
- */
+#ifndef CCAMERA_H
+#define CCAMERA_H
 
-#ifndef CCAMERA_H_
-#define CCAMERA_H_
+#include "SDL.h"
 
-#include <SDL/SDL.h>
-
-//#include "Define.h"
+#include "defines.h"
 
 //==============================================================================
 
@@ -53,4 +46,4 @@ class CCamera {
 //==============================================================================
 
 
-#endif /* CCAMERA_H_ */
+#endif

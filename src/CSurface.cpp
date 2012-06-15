@@ -1,10 +1,3 @@
-/*
- * CSurface.cpp
- *
- *  Created on: Jun 5, 2012
- *      Author: roblabla
- */
-
 #include "CSurface.h"
 
 //==============================================================================
@@ -12,11 +5,11 @@ CSurface::CSurface() {
 }
 
 //==============================================================================
-SDL_Surface* CSurface::OnLoad(char* File) {
+SDL_Surface* CSurface::OnLoad(std::string File) {
 	SDL_Surface* Surf_Temp = NULL;
 	SDL_Surface* Surf_Return = NULL;
 
-	if((Surf_Temp = IMG_Load(File)) == NULL) {
+	if((Surf_Temp = IMG_Load(File.c_str())) == NULL) {
 		return NULL;
 	}
 

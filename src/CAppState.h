@@ -1,12 +1,5 @@
-/*
- * CAppState.h
- *
- *  Created on: Jun 4, 2012
- *      Author: roblabla
- */
-
-#ifndef CAPPSTATE_H_
-#define CAPPSTATE_H_
+#ifndef CAPPSTATE_H
+#define CAPPSTATE_H
 
 #include "CEvent.h"
 
@@ -27,4 +20,4 @@ class CAppState : public CEvent {
 //        virtual void OnEvent();
 };
 
-#endif /* CAPPSTATE_H_ */
+#endif

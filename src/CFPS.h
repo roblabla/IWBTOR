@@ -1,10 +1,7 @@
-//==============================================================================
-// FPS Class
-//==============================================================================
-#ifndef _CFPS_H_
-    #define _CFPS_H_
+#ifndef CFPS_H
+#define CFPS_H
 
-#include <SDL/SDL.h>
+#include "SDL.h"
 
 //==============================================================================
 class CFPS {
@@ -12,8 +9,8 @@ class CFPS {
 		static CFPS FPSControl;
 
 	private:
-		int     OldTime;
-		int     LastTime;
+		Uint32     OldTime;
+		Uint32     LastTime;
 
 		float 	SpeedFactor;
 

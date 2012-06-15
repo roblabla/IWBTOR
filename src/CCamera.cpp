@@ -1,4 +1,3 @@
-//==============================================================================
 #include "CCamera.h"
 
 //==============================================================================
@@ -23,7 +22,7 @@ void CCamera::OnMove(float MoveX, float MoveY) {
 int CCamera::GetX() {
 	if(TargetX != NULL) {
 		if(TargetMode == TARGET_MODE_CENTER) {
-			return *TargetX - (600 / 2);
+			return *TargetX - (WINDOW_HEIGHT / 2);
 		}
 
 		return *TargetX;
@@ -36,7 +35,7 @@ int CCamera::GetX() {
 int CCamera::GetY() {
 	if(TargetY != NULL) {
 		if(TargetMode == TARGET_MODE_CENTER) {
-			return *TargetY - (800 / 2);
+			return *TargetY - (WINDOW_WIDTH / 2);
 		}
 
 		return *TargetY;
@@ -56,5 +55,3 @@ void CCamera::SetTarget(float* X, float* Y) {
 	TargetX = X;
 	TargetY = Y;
 }
-
-//==============================================================================

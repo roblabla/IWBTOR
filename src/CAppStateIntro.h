@@ -1,19 +1,26 @@
-/*
- * CAppStateIntro.h
- *
- *  Created on: Jun 4, 2012
- *      Author: roblabla
- */
+#ifndef CAPPSTATEINTRO_H
+#define CAPPSTATEINTRO_H
 
-#ifndef CAPPSTATEINTRO_H_
-#define CAPPSTATEINTRO_H_
+#include "SDL.h"
+#include "SDL_mixer.h"
 
-#include <SDL/SDL.h>
-#include <SDL/SDL_mixer.h>
+#include "defines.h"
+
 #include "CAppState.h"
 #include "CSurface.h"
 #include "CCamera.h"
 #include "CAnimation.h"
+
+#define DIR_BACKGROUND "background.png"
+#define DIR_STORY "story.png"
+#define DIR_START_MUSIC "megaman1.ogg"
+
+#define STORY_FRAMES 63
+#define STORY_FRAME_DELAY 500
+
+#define CAMERA_START_X 0
+#define CAMERA_START_Y 0
+
 class CAppStateIntro: public CAppState {
 		private:
 			static CAppStateIntro Instance;
@@ -24,8 +31,10 @@ class CAppStateIntro: public CAppState {
 			float y;
 			int StartTime;
 			CAnimation Anim_Story;
+
 		private:
 			CAppStateIntro();
+
 		public:
 			void OnActivate();
 
@@ -39,4 +48,4 @@ class CAppStateIntro: public CAppState {
 			static CAppStateIntro* GetInstance();
 };
 
-#endif /* CAPPSTATEINTRO_H_ */
+#endif

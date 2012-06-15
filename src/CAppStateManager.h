@@ -1,11 +1,14 @@
-//=============================================================================
-#ifndef __CAPPSTATEMANAGER_H__
-	#define __CAPPSTATEMANAGER_H__
+#ifndef CAPPSTATEMANAGER_H
+#define CAPPSTATEMANAGER_H
 
 #include "CAppState.h"
 
+// Refer to your Other App States Here
+#include "CAppStateIntro.h"
+//#include "CAppStateGame.h"
+
 //=============================================================================
-enum {
+enum APPSTATE{
 	// Add your Other App States Here
 	APPSTATE_NONE,
 	APPSTATE_INTRO,
@@ -25,7 +28,7 @@ class CAppStateManager {
 		static void OnRender(SDL_Surface* Surf_Display);
 
 	public:
-		static void SetActiveAppState(int AppStateID);
+		static void SetActiveAppState(APPSTATE AppStateID);
 
 		static CAppState* GetActiveAppState();
 };

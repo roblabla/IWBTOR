@@ -1,13 +1,6 @@
-/*
- * CAnnimation.h
- *
- *  Created on: Jun 9, 2012
- *      Author: roblabla
- */
-
-#ifndef CANIMATION_H_
-#define CANIMATION_H_
-#include <SDL/SDL.h>
+#ifndef CANIMATION_H
+#define CANIMATION_H
+#include "SDL.h"
 
 class CAnimation {
 	private:
@@ -32,4 +25,4 @@ class CAnimation {
 		int GetCurrentFrame();
 };
 
-#endif /* CANNIMATION_H_ */
+#endif

@@ -1,15 +1,9 @@
-/*
- * CSurface.h
- *
- *  Created on: Jun 5, 2012
- *      Author: roblabla
- */
+#ifndef CSURFACE_H
+#define CSURFACE_H
 
-#ifndef CSURFACE_H_
-#define CSURFACE_H_
-
-#include <SDL/SDL.h>
-#include <SDL/SDL_image.h>
+#include <string>
+#include "SDL.h"
+#include "SDL_image.h"
 
 //==============================================================================
 class CSurface {
@@ -17,7 +11,7 @@ class CSurface {
 		CSurface();
 
 	public:
-		static SDL_Surface* OnLoad(char* File);
+		static SDL_Surface* OnLoad(std::string File);
 
 		static bool OnDraw(SDL_Surface* Surf_Dest, SDL_Surface* Surf_Src, int X, int Y);
 
