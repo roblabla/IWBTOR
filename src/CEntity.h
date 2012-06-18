@@ -1,21 +1,10 @@
-/*
- * CEntity.h
- *
- *  Created on: Jun 18, 2012
- *      Author: roblabla
- */
-
 #ifndef CENTITY_H_
 #define CENTITY_H_
-
-#include <vector>
 
 #include "CAnimation.h"
 #include "CSurface.h"
 
 class CEntity {
-    public:
-        static std::vector<CEntity*>    EntityList;
 
     protected:
         CAnimation      Anim_Control;
@@ -45,4 +34,4 @@ class CEntity {
 
         virtual void OnCleanup();
 };
-#endif /* CENTITY_H_ */
+#endif

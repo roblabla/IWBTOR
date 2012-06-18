@@ -10,6 +10,7 @@
 #include "CSurface.h"
 #include "CCamera.h"
 #include "CAnimation.h"
+#include "CEntity.h"
 
 #define DIR_BACKGROUND "background.png"
 #define DIR_STORY "story.png"

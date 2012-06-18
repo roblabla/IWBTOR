@@ -1,13 +1,4 @@
-/*
- * CEntity.cpp
- *
- *  Created on: Jun 18, 2012
- *      Author: roblabla
- */
-
 #include "CEntity.h"
-
-std::vector<CEntity*> CEntity::EntityList;
 
 CEntity::CEntity() {
     Surf_Entity = NULL;
