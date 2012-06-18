@@ -38,6 +38,13 @@ void CAppStateIntro::OnActivate() {
 }
 
 void CAppStateIntro::OnDeactivate() {
+	for(int i = 0;i < CEntity::EntityList.size();i++) {
+	    if(!CEntity::EntityList[i]) continue;
+
+	    CEntity::EntityList[i]->OnCleanup();
+	}
+
+	CEntity::EntityList.clear();
 	if(Surf_Background) {
 		SDL_FreeSurface(Surf_Background);
 		Surf_Background = NULL;
@@ -49,17 +56,29 @@ void CAppStateIntro::OnDeactivate() {
 }
 
 void CAppStateIntro::OnLoop() {
+	for(int i = 0;i < CEntity::EntityList.size();i++) {
+	    if(!CEntity::EntityList[i]) continue;
+
+	    CEntity::EntityList[i]->OnLoop();
+	}
 	if(Anim_Story.GetCurrentFrame() != 61)
 		Anim_Story.OnAnimate();
 	else
 		CCamera::CameraControl.OnMove(0,0.5);
+
 }
 
 void CAppStateIntro::OnRender(SDL_Surface* Surf_Display) {
+	for(int i = 0;i < CEntity::EntityList.size();i++) {
+	    if(!CEntity::EntityList[i]) continue;
+
+	    CEntity::EntityList[i]->OnRender(Surf_Display);
+	}
 	if(Surf_Background) {
 		CSurface::OnDraw(Surf_Display, Surf_Background,0, Surf_Display->h-Surf_Background->h-165+CCamera::CameraControl.GetY());
 		CSurface::OnDraw(Surf_Display, Surf_Story,0, Surf_Display->h-165+CCamera::CameraControl.GetY(),0, Anim_Story.GetCurrentFrame() * 165, 800, 165);
 	}
+
 }
 
 CAppStateIntro* CAppStateIntro::GetInstance() {
