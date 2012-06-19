@@ -2,9 +2,6 @@
 #define CAPPSTATE_H
 
 #include "CEvent.h"
-#include "CAppStateManager.h"
-
-CAppStateIntro CAppStateIntro::Instance;
 
 class CAppState : public CEvent {
     public:

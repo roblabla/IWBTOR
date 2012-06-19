@@ -6,12 +6,13 @@
 
 #include "defines.h"
 
-#include "CAppState.h"
 #include "CSurface.h"
 #include "CCamera.h"
 #include "CAnimation.h"
 #include "CEntity.h"
 #include "CEntityManager.h"
+
+#include "CAppState.h"
 
 #define DIR_BACKGROUND "background.png"
 #define DIR_STORY "story.png"

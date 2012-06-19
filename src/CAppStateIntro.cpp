@@ -1,5 +1,7 @@
 #include "CAppStateIntro.h"
 
+CAppStateIntro CAppStateIntro::Instance;
+
 CAppStateIntro::CAppStateIntro() {
 	Surf_Background = NULL;
 	Surf_Title = NULL;
