@@ -34,4 +34,4 @@ class CEntity {
 
         virtual void OnCleanup();
 };
-#endif
+#endif /* CENTITY_H_ */

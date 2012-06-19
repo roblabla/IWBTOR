@@ -22,7 +22,7 @@ void CAppStateIntro::OnActivate() {
 	CCamera::CameraControl.SetPos(CAMERA_START_X, CAMERA_START_Y);
 
 	if(Mix_OpenAudio(SDL_AUDIO_RATE, SDL_AUDIO_FORMAT, SDL_AUDIO_CHANNELS, SDL_AUDIO_BUFFER) != 0) {
-		fprintf(stderr, "Unable to initialize audio: %s\n", Mix_GetError());
+		fprintf(stderr, "Unable to initialize audio: %s\n", Mix_GetError()); //Mix_GetError doesn't work, so fuck it.
 		exit(1);
 	}
 	Mix_Music *sound = NULL;
@@ -35,13 +35,7 @@ void CAppStateIntro::OnActivate() {
 }
 
 void CAppStateIntro::OnDeactivate() {
-	for(int i = 0;i < CEntity::EntityList.size();i++) {
-	    if(!CEntity::EntityList[i]) continue;
 
-	    CEntity::EntityList[i]->OnCleanup();
-	}
-
-	CEntity::EntityList.clear();
 	if(Surf_Background) {
 		SDL_FreeSurface(Surf_Background);
 		Surf_Background = NULL;
@@ -53,11 +47,7 @@ void CAppStateIntro::OnDeactivate() {
 }
 
 void CAppStateIntro::OnLoop() {
-	for(int i = 0;i < CEntity::EntityList.size();i++) {
-	    if(!CEntity::EntityList[i]) continue;
-
-	    CEntity::EntityList[i]->OnLoop();
-	}
+	CEntityManager::OnLoop();
 	if(Anim_Story.GetCurrentFrame() != 61)
 		Anim_Story.OnAnimate();
 	else
@@ -66,16 +56,11 @@ void CAppStateIntro::OnLoop() {
 }
 
 void CAppStateIntro::OnRender(SDL_Surface* Surf_Display) {
-	for(int i = 0;i < CEntity::EntityList.size();i++) {
-	    if(!CEntity::EntityList[i]) continue;
-
-	    CEntity::EntityList[i]->OnRender(Surf_Display);
-	}
+	CEntityManager::OnRender(Surf_Display);
 	if(Surf_Background) {
 		CSurface::OnDraw(Surf_Display, Surf_Background,0, Surf_Display->h-Surf_Background->h-165+CCamera::CameraControl.GetY());
 		CSurface::OnDraw(Surf_Display, Surf_Story,0, Surf_Display->h-165+CCamera::CameraControl.GetY(),0, Anim_Story.GetCurrentFrame() * 165, 800, 165);
 	}
-
 }
 
 CAppStateIntro* CAppStateIntro::GetInstance() {

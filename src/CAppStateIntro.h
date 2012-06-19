@@ -11,6 +11,7 @@
 #include "CCamera.h"
 #include "CAnimation.h"
 #include "CEntity.h"
+#include "CEntityManager.h"
 
 #define DIR_BACKGROUND "background.png"
 #define DIR_STORY "story.png"
