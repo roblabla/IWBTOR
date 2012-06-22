@@ -37,7 +37,7 @@ bool CApp::OnInit() {
 
     SDL_WM_SetCaption(WINDOW_TITLE, WINDOW_ICON_TEXT);
 
-	CAppStateManager::SetActiveAppState(APPSTATE_INTRO);
+	CAppStateManager::SetActiveAppState(APPSTATE_TESTS);
 
 	return true;
 }

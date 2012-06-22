@@ -42,10 +42,10 @@ void CAppStateManager::SetActiveAppState(APPSTATE AppStateID) {
             break;
         }
 
-        //case APPSTATE_GAME: {
-        //    ActiveAppState = CAppStateGame::GetInstance();
-        //    break;
-        //}
+        case APPSTATE_TESTS: {
+            ActiveAppState = CAppStateTests::GetInstance();
+            break;
+        }
 
         default: {
             //set to NULL so we notice something is wrong and fix it

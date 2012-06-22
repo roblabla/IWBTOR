@@ -5,13 +5,14 @@
 
 // Refer to your Other App States Here
 #include "CAppStateIntro.h"
-//#include "CAppStateGame.h"
+#include "CAppStateTests.h"
 
 //=============================================================================
 enum APPSTATE{
 	// Add your Other App States Here
 	APPSTATE_NONE,
 	APPSTATE_INTRO,
+	APPSTATE_TESTS,
 	APPSTATE_GAME
 };
 
