@@ -3,6 +3,7 @@
 
 #include "CAnimation.h"
 #include "CSurface.h"
+#include "luabind/luabind.hpp"
 
 class CEntity {
 
@@ -33,5 +34,22 @@ class CEntity {
         virtual void OnRender(SDL_Surface* Surf_Display);
 
         virtual void OnCleanup();
+};
+
+struct CEntityWrapper : CEntity, luabind::wrap_base {
+	CEntityWrapper(): CEntity() {}
+	virtual bool OnLoad(char* File, int Width, int Height, int MaxFrames)
+	{
+	//	return call_member<>();
+	}
+	virtual void OnLoop()
+	{
+		luabind::call_member<void>();
+	}
+    static void default_OnLoop(CEntity* ptr)
+    {
+        return ptr->CEntity::OnLoop();
+    }
+
 };
 #endif /* CENTITY_H_ */

@@ -1,5 +1,9 @@
 #include "CAppStateManager.h"
 
+// Refer to your Other App States Here
+#include "CAppStateIntro.h"
+#include "CAppStateTests.h"
+
 //=============================================================================
 CAppState* CAppStateManager::ActiveAppState = NULL;
 

@@ -3,10 +3,6 @@
 
 #include "CAppState.h"
 
-// Refer to your Other App States Here
-#include "CAppStateIntro.h"
-#include "CAppStateTests.h"
-
 //=============================================================================
 enum APPSTATE{
 	// Add your Other App States Here

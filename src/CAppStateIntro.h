@@ -24,7 +24,7 @@
 #define CAMERA_START_X 0
 #define CAMERA_START_Y 0
 
-class CAppStateIntro: public CAppState {
+class CAppStateIntro : public CAppState {
 		private:
 			static CAppStateIntro Instance;
 
