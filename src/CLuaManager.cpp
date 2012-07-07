@@ -1,5 +1,4 @@
 
-
 #include "CLuaManager.h"
 
 CLuaManager::CLuaManager() {
@@ -18,7 +17,7 @@ void CLuaManager::SetupEnviron() {
 	[
 	 luabind::class_<CEntity>("Entity")			// Entity. It doesn't matter if it's not the same as the actual class.
 	 .def(luabind::constructor<>())     // Defines an empty constructor
-	 .def("OnLoad", luabind::tag_function<void()>(&CEntity::OnLoad))	// Defines OnLoad
+//	 .def("OnLoad", luabind::tag_function<void()>(&CEntity::OnLoad))	// Defines OnLoad
 	 .def("OnLoop", &CEntity::OnLoop)	// Defines OnLoop, etc...
 //	 .def("OnRender", &CEntity::OnRender)
 	 .def("OnCleanup", &CEntity::OnCleanup)
