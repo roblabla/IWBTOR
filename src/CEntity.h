@@ -44,7 +44,7 @@ struct CEntityWrapper : CEntity, luabind::wrap_base {
 	}
 	virtual void OnLoop()
 	{
-		luabind::call_member<void>();
+		call<void>("OnLoop");
 	}
     static void default_OnLoop(CEntity* ptr)
     {
